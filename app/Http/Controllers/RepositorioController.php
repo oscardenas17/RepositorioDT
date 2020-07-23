@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Repositorio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class RepositorioController extends Controller
 {
@@ -49,14 +50,14 @@ class RepositorioController extends Controller
         $data = $request->validate([
             'titulo'=> 'required|min:6',
             'contenido' => 'required',
-            'imagen' => 'image',
+           // 'imagen' => 'image',
             'categoria' => 'required',
         ]);
         DB::table('repositorios')->insert([
             'titulo' => $data['titulo'],
             'contenido' => $data['contenido'],
-            'imagen' => 'imagen.jpg',
-            'user_id' => 1,
+            //'imagen' => 'imagen.jpg',
+            'user_id' => Auth::user()->id,
             'categoria_id' => $data['categoria'],
         ]);
         //dd imprime todo lo que haga parte el request

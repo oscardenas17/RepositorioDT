@@ -26,7 +26,7 @@ class CreateRepositoriosTable extends Migration
             $table->id();
             $table->string('titulo');
             $table->text('contenido');
-            $table->string('imagen');
+           // $table->string('imagen');
             $table->foreignId('user_id')->references('id')->on('users')->comment('Usuario que diligencia la información');
             $table->foreignId('categoria_id')->index('categoria_id')->comment('Categoria de la información');
             $table->timestamps();

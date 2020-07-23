@@ -76,7 +76,7 @@
 
 
                 {{-- IMAGEN --}}
-                <div class="form-group mt-3">
+                {{-- <div class="form-group mt-3">
                     <label for="imagen">Imágen</label>
 
                     <input type="file"
@@ -91,7 +91,7 @@
                     </span>
                     @enderror
 
-                </div>
+                </div> --}}
 
 
 
