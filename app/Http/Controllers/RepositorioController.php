@@ -49,7 +49,7 @@ class RepositorioController extends Controller
         $data = $request->validate([
             'titulo'=> 'required|min:6',
             'contenido' => 'required',
-            //'imagen' => 'image'
+            'imagen' => 'image',
             'categoria' => 'required',
         ]);
         DB::table('repositorios')->insert([
