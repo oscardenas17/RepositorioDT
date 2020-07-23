@@ -20,7 +20,7 @@
 
                     <input type="text" 
                     name="titulo" 
-                    class="form-control  @error('titulo') is-invalid @enderror"
+                    class="form-control @error('titulo') is-invalid @enderror"  
                     id="titulo"
                     placeholder="Titulo Repositorio"
                     value="{{ old('titulo')}}"
@@ -36,14 +36,25 @@
                 <div class="form-group">
 
                    <label for="categoria">Categoria</label>
-                   <select name="categoria" class="form-control" id="categoria">
-                        @foreach($categorias as $id => $categoria)
 
-                            <option value="{{$id}}"> {{$categoria}} </option>          
+                   <select name="categoria" class="form-control @error('categoria') is-invalid @enderror" id="categoria">
+
+                             <option value="">--Seleccione</option>
+                                @foreach($categorias as $id => $categoria)
+                            <option 
+                                value="{{ $id }}"  
+                                {{ old('categoria') == $id ? 'selected' : ''}}>
+                                {{$categoria}} 
+                            </option>          
                             
                         @endforeach
-                       
-                   </select>
+                    </select>
+
+                    @error('categoria')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}} </strong>
+                        </span>
+                    @enderror
 
                 </div>
 

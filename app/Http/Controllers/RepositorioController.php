@@ -47,7 +47,8 @@ class RepositorioController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'titulo'=> 'required|min:6'
+            'titulo'=> 'required|min:6',
+            'categoria' => 'required'
         ]);
         DB::table('repositorios')->insert([
             'titulo' => $data['titulo']
