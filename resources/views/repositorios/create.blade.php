@@ -65,7 +65,7 @@
                 <div class="form-group mt-3">
                     <label for="contenido">Contenido</label>
                     <input type="hidden" id="contenido" name="contenido" value="{{ old('contenido') }}">
-                    <trix-editor class="form-control @error('contenido') is-invalid @enderror" id="categoria"></trix-editor>
+                    <trix-editor input="contenido" class="form-control @error('contenido') is-invalid @enderror" id="contenido"></trix-editor>
 
                     @error('contenido')
                     <span class="invalid-feedback d-block" role="alert">
@@ -74,6 +74,24 @@
                     @enderror
                 </div>
 
+
+                {{-- IMAGEN --}}
+                <div class="form-group mt-3">
+                    <label for="imagen">Imágen</label>
+
+                    <input type="file"
+                            id="imagen"
+                            class="form-control"
+                            name="imagen">
+
+
+                    @error('imagen')
+                    <span class="invalid-feedback d-block" role="alert">
+                        <strong>{{$message}} </strong>
+                    </span>
+                    @enderror
+
+                </div>
 
 
 

@@ -48,11 +48,16 @@ class RepositorioController extends Controller
     {
         $data = $request->validate([
             'titulo'=> 'required|min:6',
-            'categoria' => 'required',
             'contenido' => 'required',
+            //'imagen' => 'image'
+            'categoria' => 'required',
         ]);
         DB::table('repositorios')->insert([
-            'titulo' => $data['titulo']
+            'titulo' => $data['titulo'],
+            'contenido' => $data['contenido'],
+            'imagen' => 'imagen.jpg',
+            'user_id' => 1,
+            'categoria_id' => $data['categoria'],
         ]);
         //dd imprime todo lo que haga parte el request
         //dd( $request->all());
