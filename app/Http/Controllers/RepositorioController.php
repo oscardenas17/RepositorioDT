@@ -31,8 +31,11 @@ class RepositorioController extends Controller
      */
     public function create()
     {
+        //DB::table('categoria_repositorio')->get()->pluck('nombre','id')->dd();
         //
-        return view('repositorios.create');
+        $categorias = DB::table('categoria_repositorio')->get()->pluck('nombre','id');
+
+        return view('repositorios.create')->with('categorias', $categorias);
     }
 
     /**
